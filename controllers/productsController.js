@@ -94,4 +94,31 @@ const deleteProduct = (req, res) => {
   res.status(204).send();
 };
 
-module.exports = { getProducts, getProductById, createProduct, updateProduct, deleteProduct };
+const createProductSocket = (product) => {
+  const products = readProducts();
+  product.id = products.length + 1;
+  products.push(product);
+  saveProducts(products);
+};
+
+const deleteProductSocket = (id) => {
+  const products = readProducts();
+  const index = products.findIndex(p => p.id === parseInt(id));
+  if (index !== -1) {
+    products.splice(index, 1);
+    saveProducts(products);
+  }
+};
+
+module.exports = {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  createProductSocket,
+  deleteProductSocket,
+  readProducts
+};
+
+

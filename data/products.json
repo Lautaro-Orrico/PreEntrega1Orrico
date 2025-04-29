@@ -1,0 +1,25 @@
+[
+    {
+      "id": 1,
+      "title": "Zapatillas deportivas",
+      "description": "Zapatillas para correr, livianas y cómodas.",
+      "code": "ZP001",
+      "price": 12000,
+      "status": true,
+      "stock": 20,
+      "category": "calzado",
+      "thumbnails": []
+    },
+    {
+      "id": 2,
+      "title": "Campera impermeable",
+      "description": "Ideal para días lluviosos o fríos.",
+      "code": "CMP002",
+      "price": 18500,
+      "status": true,
+      "stock": 10,
+      "category": "ropa",
+      "thumbnails": []
+    }
+  ]
+  
