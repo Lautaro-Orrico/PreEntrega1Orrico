@@ -1,0 +1,43 @@
+<h1>Lista de Productos</h1>
+
+{{#if products}}
+  <ul>
+    {{#each products}}
+      <li>
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <p>Precio: ${{price}}</p>
+        <p>Categoría: {{category}}</p>
+        <p>Stock: {{stock}}</p>
+        <form action="/api/carts/1/product/{{_id}}" method="post">
+          <button type="submit">Agregar al carrito</button>
+        </form>
+        <a href="/products/{{_id}}">Ver detalles</a>
+      </li>
+    {{/each}}
+  </ul>
+
+  <div>
+    {{#if hasPrevPage}}
+      <a href="/products?page={{prevPage}}">Anterior</a>
+    {{/if}}
+
+    <span>Página {{currentPage}}</span>
+
+    {{#if hasNextPage}}
+      <a href="/products?page={{nextPage}}">Siguiente</a>
+    {{/if}}
+  </div>
+{{else}}
+  {{#if product}}
+    <h2>{{product.title}}</h2>
+    <p>{{product.description}}</p>
+    <p>Precio: ${{product.price}}</p>
+    <p>Categoría: {{product.category}}</p>
+    <form action="/api/carts/1/product/{{product._id}}" method="post">
+      <button type="submit">Agregar al carrito</button>
+    </form>
+  {{else}}
+    <p>No hay productos disponibles.</p>
+  {{/if}}
+{{/if}}
